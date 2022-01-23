@@ -1,0 +1,80 @@
+@import "flex.scss";
+@import "helper.scss";
+
+:host {
+    @extend .fx-layout-column;
+    width: 100%;
+    height: calc(100vh * 2);
+
+    .location-wrapper {
+        @extend .fx-layout-row-wrap;
+        column-gap: 8px;
+        row-gap: 8px;
+    }
+    .__form-wrapper {
+        margin-top: 32px;
+        margin-left: 64px;
+        min-width: 375px;
+        .__form-box {
+            position: sticky;
+            top: 80px;
+            padding: 24px;
+            border-radius: calc(var(--border-radius) * 3);
+            border: 1px solid var(--bg-color-disabled);
+            width: 100%;
+            box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+            .__date {
+                position: relative;
+                @extend .fx-layout-row;
+                border: 1px solid var(--bg-color-outline);
+                border-top: none;
+                &:after {
+                    content: '';
+                    position: absolute;
+                    height: 100%;
+                    width: 1px;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    background-color: var(--bg-color-outline);
+                }
+            }
+
+            .__location {
+                position: relative;
+                border: 1px solid var(--bg-color-outline);
+                border-top: none;
+            }
+
+            .__amount {
+                position: relative;
+                @extend .fx-layout-row;
+                border: 1px solid var(--bg-color-outline); 
+                border-top-left-radius: calc(var(--border-radius) * 2);
+                border-top-right-radius: calc(var(--border-radius) * 2);
+                &:after {
+                    content: '';
+                    position: absolute;
+                    height: 100%;
+                    width: 1px;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    background-color: var(--bg-color-outline);
+                }
+            }
+
+            .__notes {
+                position: relative;
+                @extend .fx-layout-row;
+                border: 1px solid var(--bg-color-outline); 
+                border-top: none;
+                border-bottom-left-radius: calc(var(--border-radius) * 2);
+                border-bottom-right-radius: calc(var(--border-radius) * 2);
+            }
+
+
+
+        }
+    }
+}

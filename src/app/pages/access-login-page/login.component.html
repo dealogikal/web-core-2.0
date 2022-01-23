@@ -1,0 +1,74 @@
+<div class="__backdrop" (click)="onClose()"></div>
+
+
+<div class="__modal">
+
+    <form class="__content" [formGroup]="form">
+
+        <div class="fx-layout-row">
+            <div class="__btn __btn-icon __btn-icon-lg m-l--14px" (click)="onClose()">
+                <div class="__icon" [inlineSVG]="'assets/icons/arrow-left.svg'"></div>
+            </div>
+        </div>
+
+        <div class="p-t-40px"></div>
+        <div class="__hdr-3">Welcome to Dealogikal</div>
+
+        <div class="p-t-4px"></div>
+
+        <div class="__body-1">Sign in to continue</div>
+
+        <div class="p-t-32px"></div>
+
+        <div class="form-field">
+            <input id="email" type="email" placeholder="email" autocomplete="off" formControlName="email"
+                [class.error]="form.controls['email'].hasError('required') && !form.controls['email'].pristine && form.controls['email'].touched">
+            <label for="email">Email address</label>
+
+            <div class="__err"
+                *ngIf="form.controls['email'].hasError('required') && !form.controls['email'].pristine && form.controls['email'].touched">
+                <div class="__icon" [inlineSVG]="'assets/icons/alert-circle-fill.svg'"></div>
+                <span>&nbsp;This field is required</span>
+            </div>
+            <div class="__err"
+                *ngIf="form.controls['email'].hasError('email') && !form.controls['email'].pristine && form.controls['email'].touched">
+                <div class="__icon" [inlineSVG]="'assets/icons/alert-circle-fill.svg'"></div>
+                <span>&nbsp;That doesn't appear to be a valid email address</span>
+            </div>
+        </div>
+
+
+        <div class="form-field">
+            <input id="password" type="password" placeholder="password" autocomplete="off" formControlName="password"
+                [class.error]="form.controls['password'].hasError('required') && !form.controls['password'].pristine && form.controls['password'].touched">
+            <label for="password">Password</label>
+
+            <div class="__err"
+                *ngIf="form.controls['password'].hasError('required') && !form.controls['password'].pristine && form.controls['password'].touched">
+                <div class="__icon" [inlineSVG]="'assets/icons/alert-circle-fill.svg'"></div>
+                <span>&nbsp;This field is required</span>
+            </div>
+        </div>
+
+        <div class="err-box" *ngIf="error$ | async as error">{{error}}</div>
+
+        <div class="p-t-24px"></div>
+
+        <div class="__btn lg primary" (click)="onSubmit()">Continue</div>
+
+        <div class="p-t-40px"></div>
+
+        <div class="fx-layout-row fx-align-center-center">
+            <div>
+                <span class="__small-txt">Password not working?&nbsp;</span>
+                <span class="__ui-link">Reset my password</span>
+            </div>
+        </div>
+
+    </form>
+
+    <div class="__meta">
+
+    </div>
+
+</div>

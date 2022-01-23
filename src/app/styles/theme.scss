@@ -1,0 +1,169 @@
+// -bgxgx: #000000;
+// --f-k-smk-x: #222222;
+// --fo-jk-r-s: #717171;
+// --iw-ihca: #B0B0B0;
+// --j-qkgmf: #DDDDDD;
+// --d-nc-lt-s: #EBEBEB;
+// ---pc-g-v-g: #F7F7F7;
+// --f-mkcy-f: #FFFFFF;
+
+
+$themes: (
+    "light": (
+        "bg": (
+            "primary": #ffffff,
+            "secondary": #fcfcfc,
+            "disabled": #dddddd,
+            "outline":  #B0B0B0,
+            "hover": #f7f7f7,
+        ),
+        "text": (
+            "primary": #222222,
+            "secondary": #484848,
+            "placeholder": #717171,
+            "disabled": #ffffff,
+            "primary-with-bgcolor": #ffffff,
+        ),
+    ),
+    "dark": (
+        "bg": (
+            "primary": #20274a,
+            "secondary": #272f57,
+            "disabled": #4b4e69,
+        ),
+        "text": (
+            "primary": #d5d8df,
+            "secondary": #9699a6,
+            "placeholder": rgba(197, 199, 208, 0.1),
+            "disabled": rgba(197, 199, 208, 0.25),
+            "primary-with-bgcolor": #ffffff,
+        ),
+    ),
+);
+
+$colors: (
+    "primary": (
+        "1": #10acf5,
+        "2": #66b5f8,
+        "3": #d5e9fa,
+        "rgba": rgba(#0084f4, 0.1),
+    ),
+    "accent": (
+        "1": #ffa26b,
+        "2": #ffc7a6,
+        "3": #ffe8da,
+        "rgba": rgba(#ffa26b, 0.1),
+    ),
+    "success": (
+        "1": #00c48c,
+        "2": #7ddfc3,
+        "3": #d5f2ea,
+        "rgba": rgba(#00c48c, 0.1),
+    ),
+    "warn": (
+        "1": #ffcf5c,
+        "2": #ffe29d,
+        "3": #fff8e7,
+        "rgba": rgba(#ffcf5c, 0.1),
+    ),
+    "error": (
+        "1": #ff647c,
+        "2": #fdafbb,
+        "3": #fbe4e8,
+        "rgba": rgba(#ff647c, 0.1),
+    ),
+    "info": (
+        "1": #6979f8,
+        "2": #a5affb,
+        "3": #e5e7fa,
+        "rgba": rgba(#6979f8, 0.1),
+    ),
+    "other": (
+        "1": #be52f2,
+        "2": #dba5f5,
+        "3": #eedff2,
+        "rgba": rgba(#be52f2, 0.1),
+    ),
+);
+
+:root {
+    --border-radius: 4px;
+    --max-content-width: 1120px;
+    --box-shadow-thin: 0px 2px 4px rgb(0, 0, 0, 0.07);
+    --box-shadow-light: 0px 7px 64px rgba(0, 0, 0, 0.07);
+    --box-shadow-medium: 0px 0px 10px rgba(0, 0, 0, 0.07);
+    --box-shadow-dark: 0px 7px 20px rgba(0, 0, 0, 0.07);
+    --box-shadow-transparent: 0px 7px 64px rgba(0, 0, 0, 0);
+    @each $colorName, $color in $colors {
+        @each $shadeName, $shade in $color {
+            --#{$colorName}-color-#{$shadeName}: #{$shade};
+        }
+    }
+}
+
+@each $theme-name, $theme-vars in $themes {
+    $bg: map-get($theme-vars, "bg");
+    $text: map-get($theme-vars, "text");
+
+    .#{$theme-name}-app-theme {
+        @each $name, $color in $bg {
+            --bg-color-#{$name}: #{$color};
+        }
+        @each $name, $color in $text {
+            --text-color-#{$name}: #{$color};
+        }
+    }
+}
+
+.light-app-theme {
+    .__light {
+        display: inline-block;
+    }
+    .__dark {
+        display: none;
+    }
+}
+.dark-app-theme {
+    .__light {
+        display: none;
+    }
+    .__dark {
+        display: inline-block;
+    }
+}
+// .app {
+//     $bg: map-get(map-get($themes, "light"), "bg");
+//     $text: map-get(map-get($themes, "light"), "text");
+
+//     @each $name, $color in $bg {
+//         --bg-#{$name}: #{$color};
+//         .__bg-#{$name} {
+//             background-color: var(--bg-#{$name});
+//         }
+//     }
+//     @each $name, $color in $text {
+//         --text-#{$name}: #{$color};
+//         .__text-#{$name} {
+//             color: var(--text-#{$name});
+//         }
+//     }
+// }
+
+// @media (prefers-color-scheme: dark) {
+//     .app {
+//         $bg: map-get(map-get($themes, "dark"), "bg");
+//         $text: map-get(map-get($themes, "dark"), "text");
+//         @each $name, $color in $bg {
+//             --bg-#{$name}: #{$color};
+//             .__bg-#{$name} {
+//                 background-color: var(--bg-#{$name});
+//             }
+//         }
+//         @each $name, $color in $text {
+//             --text-#{$name}: #{$color};
+//             .__text-#{$name} {
+//                 color: var(--text-#{$name});
+//             }
+//         }
+//     }
+// }

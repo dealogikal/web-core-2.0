@@ -1,0 +1,195 @@
+@import "theme.scss";
+
+@font-face {
+    font-family: "Cereal";
+    font-style: normal;
+    font-weight: 800;
+    font-display: block;
+    src: url(../../assets/fonts/Cereal_W_XBd.woff2) format("woff2");
+}
+@font-face {
+    font-family: "Cereal";
+    font-style: normal;
+    font-weight: 700;
+    font-display: block;
+    src: url(../../assets/fonts/Cereal_W_XBd.woff2) format("woff2");
+}
+@font-face {
+    font-family: "Cereal";
+    font-style: normal;
+    font-weight: 600;
+    font-display: block;
+    src: url(../../assets/fonts/Cereal_W_Bd.woff2) format("woff2");
+}
+@font-face {
+    font-family: "Cereal";
+    font-style: normal;
+    font-weight: 500;
+    font-display: block;
+    src: url(../../assets/fonts/Cereal_W_Md.woff2) format("woff2");
+}
+@font-face {
+    font-family: "Cereal";
+    font-style: normal;
+    font-weight: 300;
+    font-display: block;
+    src: url(../../assets/fonts/Cereal_W_Lt.woff2) format("woff2");
+}
+@font-face {
+    font-family: "Cereal";
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url(../../assets/fonts/Cereal_W_Bk.woff2) format("woff2");
+}
+
+.__hdr {
+    &-1 {
+        font-family: "Cereal", Arial, Helvetica, sans-serif;
+        font-size: 32px;
+        line-height: 36px;
+        font-weight: 500;
+        -webkit-font-smoothing: antialiased;
+    }
+    &-2 {
+        font-family: "Cereal", Arial, Helvetica, sans-serif;
+        font-size: 26px;
+        line-height: 30px;
+        font-weight: 500;
+        -webkit-font-smoothing: antialiased;
+    }
+    &-3 {
+        font-family: "Cereal", Arial, Helvetica, sans-serif;
+        font-size: 22px;
+        line-height: 26px;
+        font-weight: 500;
+        -webkit-font-smoothing: antialiased;
+    }
+    &-4 {
+        font-family: "Cereal", Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        line-height: 26px;
+        font-weight: 500;
+        -webkit-font-smoothing: antialiased;
+    }
+    &-5 {
+        font-family: "Cereal", Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 500;
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+.fw-300 {
+    font-weight: 300 !important;
+}
+
+.fw-400 {
+    font-weight: 400 !important;
+}
+
+.fw-500 {
+    font-weight: 500 !important;
+}
+
+.fw-600 {
+    font-weight: 600 !important;
+}
+
+.fw-700 {
+    font-weight: 700 !important;
+}
+
+.fw-800 {
+    font-weight: 800 !important;
+}
+
+.__btn-txt {
+    &-lg {
+        font-family: "Cereal", Arial, Helvetica, sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        -webkit-font-smoothing: antialiased;
+    }
+    &-md {
+        font-family: "Cereal", Arial, Helvetica, sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        -webkit-font-smoothing: antialiased;
+    }
+    &-sm {
+        font-family: "Cereal", Arial, Helvetica, sans-serif;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 18px;
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+.__caption {
+    &-1 {
+        font-family: "Cereal", Arial, Helvetica, sans-serif;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16px;
+        -webkit-font-smoothing: antialiased;
+    }
+    &-2 {
+        font-family: "Cereal", Arial, Helvetica, sans-serif;
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 13px;
+        color: var(--text-color-placeholder);
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+.__body {
+    &-1 {
+        font-family: "Cereal", Arial, Helvetica, sans-serif;
+        font-weight: 400;
+        font-size: 16;
+        line-height: 22px;
+        color: var(--text-color-primary);
+        -webkit-font-smoothing: antialiased;
+        &.primary {
+            color: var(--text-color-primary);
+        }
+        &.secondary {
+            color: var(--text-color-secondary);
+        }
+        &.caption {
+            color: var(--text-color-placeholder);
+        }
+    }
+    &-2 {
+        font-family: "Cereal", Arial, Helvetica, sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: var(--text-color-primary);
+        -webkit-font-smoothing: antialiased;  
+        &.primary {
+            color: var(--text-color-primary);
+        }
+        &.secondary {
+            color: var(--text-color-secondary);
+        }
+        &.caption {
+            color: var(--text-color-placeholder);
+        }
+    }
+
+  
+}
+
+.__small-txt {
+    font-family: "Cereal", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    -webkit-font-smoothing: antialiased;
+}

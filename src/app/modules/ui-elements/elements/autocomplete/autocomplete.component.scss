@@ -1,0 +1,17 @@
+@import "flex.scss";
+@import "helper.scss";
+@import "fonts.scss";
+@import "form-elements.scss";
+
+.__autocomplete {
+  padding: 32px;
+  position: absolute;
+  margin-top: 12px;
+  top: 100%;
+  left: 0;
+  max-width: 850px;
+  min-width: 100%;
+  background-color: var(--bg-color-primary);
+  border-radius: calc(var(--border-radius) * 8);
+  box-shadow: var(--box-shadow-dark);
+}

@@ -1,0 +1,53 @@
+@import "flex.scss";
+@import "helper.scss";
+
+:host {
+    width: 100%;
+    padding-top: 42.85%;
+    position: relative;
+    display: block;
+    .__grid__row {
+        @extend .fx-layout-row;
+        width: 100%;
+        height: 100%;
+    }
+
+    .__grid__col {
+        @extend .fx-layout-column;
+        width: 100%;
+        height: 100%;
+    }
+
+    .__gallery__content {
+        @extend .fx-layout-row;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .__item__wrapper {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        // background-color: green;
+    }
+
+    .__image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-size: contain !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+    }
+
+    .__btn-wrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 16px;
+        z-index: 1;
+    }
+}

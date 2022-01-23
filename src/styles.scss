@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+@import "../node_modules/css-reset-and-normalize/scss/reset-and-normalize";
+@import "theme.scss";
+@import "fonts.scss";
+@import "flex.scss";
+@import "helper.scss";
+@import "form-elements.scss";
+@import "~@angular/cdk/overlay-prebuilt.css";
+
+body {
+    font-family: "Cereal";
+    color: var(--text-color-primary);
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-color-primary);
+}
+
+.cdk-overlay-backdrop {
+    backdrop-filter: blur(4px);
+}
+
+.component {
+    background-color: var(--bg-color-secondary);
+    color: var(--text-color-primary);
+}

@@ -1,0 +1,10 @@
+<ng-container *ngIf="multiple">
+    <input type="file" ng2FileSelect [uploader]="uploader" [attr.accept]="accept" multiple />
+    <div class="__icon xl" [inlineSVG]="icon" *ngIf="icon"></div>
+    <div class="__btn sm shade" *ngIf="label">{{label}}</div>
+</ng-container>
+<ng-container *ngIf="!multiple">
+    <input type="file" ng2FileSelect [uploader]="uploader" [attr.accept]="accept" />
+    <div class="__icon xl" [inlineSVG]="icon" *ngIf="icon"></div>
+    <div class="__btn sm shade" *ngIf="label">{{label}}</div>
+</ng-container>

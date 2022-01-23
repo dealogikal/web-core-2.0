@@ -1,0 +1,116 @@
+<ng-container *ngIf="ready$ | async">
+    <div class="m-t-40px"></div>
+
+    <div class="__section">
+        <div class="__section__padding">
+            <div class="__section__content">
+
+                <div class="__crumbs">
+                    <span class="__crumb link"
+                        [routerLink]="(brand$ | async) ? ['../../management/brands'] : ['../management/brands']">Brands</span>
+                    <span class="__crumb__separator" [inlineSVG]="'assets/icons/chevron.right.svg'"></span>
+                    <span class="__crumb">{{(title$ | async)}}</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="m-t-12px"></div>
+
+    <div class="__section">
+        <div class="__section__padding">
+            <div class="__section__content">
+                <div class="__hdr-1">{{(title$ | async)}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="m-t-48px"></div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="__section">
+            <div class="__section__padding">
+                <div class="__section__content">
+
+                    <div class="__hdr-5">Brand Logo</div>
+                    <div class="m-t-8px"></div>
+                    <div class="__caption-1">Recommended image resolution: 600 x 600 pixel, JPEG format, maximum size 1
+                        MB. The logo will be used in all scenarios with store exposure</div>
+                    <div class="m-t-12px"></div>
+                    <ui-photo-uploader [label]="'Upload logo'" [folder]="'core/store-logo'"
+                        [accept]="'image/jpeg, image/png'" (onUploadComplete)="onUploadLogo($event)"
+                        [image]="form.controls.logo.value"></ui-photo-uploader>
+                    <div class="m-t-12px"></div>
+
+
+                    <div class="m-t-48px"></div>
+
+                    <div class="__hdr-5">Brand Name</div>
+                    <div class="m-t-8px"></div>
+                    <div class="__caption-1">Please don't use any sensitive or forbidden words</div>
+                    <div class="m-t-12px"></div>
+                    <div class="form-field">
+                        <input type="text" id="brandName" placeholder="brandName" autocomplete="off"
+                            formControlName="name">
+                        <label for="brandName">Brand Name</label>
+                    </div>
+
+
+                    <div class="m-t-48px"></div>
+
+                    <div class="__hdr-5">Brand Description</div>
+                    <div class="m-t-8px"></div>
+                    <div class="__caption-1">Enter the description or information about the brand</div>
+                    <div class="m-t-12px"></div>
+                    <div class="form-field">
+                        <p contenteditable id="brandDescription" placeholder="brandDescription"
+                            formControlName="description">
+                        </p>
+                        <label for="brandName">Brand Description</label>
+                    </div>
+
+
+                    <div class="m-t-48px"></div>
+
+                    <div class="__hdr-5">Images and Videos</div>
+                    <div class="m-t-8px"></div>
+                    <div class="__caption-1">Resolution should not exceed 1280 x 1280 pixel, maximum size 1 MB. Images
+                        and
+                        videos will be
+                        display in your store front</div>
+                    <div class="m-t-12px"></div>
+                    <ui-grid-gallery [label]="'Upload photos'" [images]="form.controls.visual_medium.value"
+                        [folder]="'core/store-photos-and-videos'" [icon]="'assets/icons/photo.svg'"
+                        [accept]="'image/jpeg, image/png'" (onUploadComplete)="onUploadImage($event)"
+                        (onDeleteItem)="onDeleteImage($event)"></ui-grid-gallery>
+                    <div class="m-t-12px"></div>
+
+                    <div class="m-64px"></div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="__section __sticky">
+            <div class="__section__padding">
+                <div class="__section__content">
+
+                    <div class="fx-layout-row fx-align-start-center">
+                        <button type="submit" class="__btn lg primary"
+                            [class.disabled]="!(hasChanged$ | async)">{{!(hasChanged$
+                            | async) ? 'No changes' : (brand$ |
+                            async) ? 'Save' : 'Submit'}}</button>
+                        <div class="m-l-16px"></div>
+
+                        <button class="__btn lg" *ngIf="brand$ | async">Removed Brand</button>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </form>
+</ng-container>

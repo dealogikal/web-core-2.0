@@ -1,0 +1,27 @@
+<ng-container *ngIf="ready$ | async">
+    <div class="m-t-40px"></div>
+    <div class="m-t-22px"></div>
+    <div class="__section">
+        <div class="__section__padding">
+            <div class="__section__content">
+                <div class="__hdr-1">{{(title$ | async)}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="m-t-40px"></div>
+
+    <div class="__section">
+        <div class="__section__padding">
+            <div class="__section__content">
+                <div class="__tabs">
+                    <div class="__tab__item" [routerLink]="item.link" routerLinkActive="active"
+                        *ngFor="let item of tabs$ | async">{{item.label}}</div>
+                </div>
+                <div class="__separator"></div>
+            </div>
+        </div>
+    </div>
+
+    <router-outlet></router-outlet>
+</ng-container>

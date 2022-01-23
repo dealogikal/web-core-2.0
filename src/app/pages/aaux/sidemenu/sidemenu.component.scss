@@ -1,0 +1,30 @@
+@import "flex.scss";
+@import "fonts.scss";
+@import "helper.scss";
+
+:host {
+    min-width: 275px;
+    height: calc(100vh - 80px);
+    border-right: 1px solid var(--text-color-disabled);
+    margin-top: 80px;
+    @extend .fx-layout-column;
+    background-color: var(--bg-color-primary);
+
+    .__side-menu {
+        @extend .fx-layout-column;
+        .__menu-item {
+            @extend .__body-2;
+            @extend .fx-layout-row;
+            @extend .fx-align-start-center;
+            font-weight: 400;
+            height: 48px;
+            cursor: pointer;
+            padding: 0px 24px;
+            transition: background-color 100ms ease 0ms;
+            background-color: var(--bg-color-transparent);
+            &:hover {
+                background-color: var(--bg-color-disabled);
+            }
+        }
+    }
+}

@@ -1,0 +1,50 @@
+@import "flex.scss";
+@import "helper.scss";
+@import "fonts.scss";
+@import "form-elements.scss";
+
+:host {
+    @extend .fx-layout-row;
+    @extend .fx-align-center-start;
+    background-color: var(--bg-color-primary);
+    .__wrapper {
+        @extend .fx-layout-column;
+        min-height: 100%;
+        margin-top: calc(80px + 40px);
+        width: 100%;
+        max-width: 742px !important;
+        padding: 24px;
+    }
+
+    .__headline {
+        @extend .__hdr-3;
+        @extend .m-v-16px;
+        color: var(--text-color-primary);
+        // text-align: center;
+        font-size: 40px;
+        // font-weight: 400;
+    }
+    .__subline {
+        @extend .__body-1;
+        @extend .m-v-16px;
+        color: var(--text-color-primary);
+        // text-align: center;
+    }
+    .__card {
+        box-shadow: var(--box-shadow-medium);
+        background-color: var(--bg-color-primary);
+        padding: 20px;
+        border-radius: calc(var(--border-radius) * 2);
+        width: 500px;
+        .__icon {
+            height: 24px;
+            width: 24px;
+            fill: var(--text-color-primary);
+        }
+        .__label {
+            @extend .__btn-txt;
+            margin-top: 8px;
+            color: var(--text-color-primary);
+        }
+    }
+}

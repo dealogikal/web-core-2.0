@@ -1,0 +1,71 @@
+<div class="__start-your-search" (click)="onStartHandler()">Start your search</div>
+
+<div class="__form">
+
+
+    <div class="__field">
+        <label for="product">Product</label>
+        <input uiAutocomplete id="product" placeholder="Search for products" [autocomplete]="product">
+    </div>
+
+    <div class="__field">
+        <label for="location">Location</label>
+        <input uiAutocomplete id="location" placeholder="Where to deliver?" [autocomplete]="location">
+    </div>
+
+    <ui-autocomplete class="__autocomplete" #product>
+        <ng-template uiAutocompleteContent>
+            <div class="fx-layout-column">
+                <div class="__hdr-3">There are over 100k products on Dealogikal's marketplace</div>
+                <div class="m-t-6px"></div>
+                <div class="__small-txt">Key in your search and start exploring</div>
+            </div>
+            <div class="m-t-24px"></div>
+            <div CLASS="__caption-1">
+                RECENT SEARCHES
+            </div>
+            <div class="m-t-8px"></div>
+            <ui-autocomplete-option *ngFor="let option of products" [value]="option.label">
+                <div class="fx-layout-row fx-align-start-center">
+                    <div class="__avatar"></div>
+                    <div class="m-l-16px"></div>
+                    <div class="fx-layout-column">
+                        <div class="__body-1">{{ option.label }}</div>
+                        <div class="fx-layout-row">
+                            <div class="__caption-2">10 Suppliers</div>
+                        </div>
+                    </div>
+                </div>
+            </ui-autocomplete-option>
+        </ng-template>
+    </ui-autocomplete>
+
+    <ui-autocomplete class="__autocomplete" #location>
+        <ng-template uiAutocompleteContent>
+            <div class="fx-layout-column">
+                <div class="__hdr-3">Filter products available in your delivery location</div>
+                <div class="m-t-6px"></div>
+                <div class="__small-txt">Key in delivery location</div>
+            </div>
+            <div class="m-t-24px"></div>
+            <div CLASS="__caption-1">
+                RECENT LOCATIONS
+            </div>
+            <div class="m-t-8px"></div>
+            <ui-autocomplete-option *ngFor="let option of locations" [value]="option.label">
+                <div class="fx-layout-row fx-align-start-center">
+                    <div class="__avatar"></div>
+                    <div class="m-l-16px"></div>
+                    <div class="fx-layout-column">
+                        <div class="__body-1">{{ option.label }}</div>
+                    </div>
+                </div>
+            </ui-autocomplete-option>
+        </ng-template>
+    </ui-autocomplete>
+
+</div>
+<div class="__search-btn  __btn-icon __btn-icon-lg primary">
+    <div class="__icon w-bg" [inlineSVG]="'assets/icons/search.svg'"></div>
+    <!-- <span class="__text">Search</span> -->
+</div>

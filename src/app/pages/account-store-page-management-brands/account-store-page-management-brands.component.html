@@ -1,0 +1,41 @@
+<div class="m-t-16px"></div>
+
+
+<div class="__section">
+    <div class="__section__padding">
+        <div class="__section__content">
+            <div class="__brands-wrapper">
+
+                <div class="__add-btn" [routerLink]="['../../new-brand']">
+                    <div>
+                        <div class="__btn sm">Create Brand</div>
+                    </div>
+                </div>
+
+                <div class="__card" *ngFor="let brand of brands$ | async">
+                    <div class="m-t-20px"></div>
+                    <div class="__btn-wrapper">
+                        <div class="__btn __btn-icon __btn-icon-md shade" [routerLink]="['../../brand/', brand.url]">
+                            <div class="__icon" [inlineSVG]="'assets/icons/pencil.svg'"></div>
+                        </div>
+                    </div>
+                    <div class="__header">
+                        <div class="__logo">
+                            <img [attr.src]="brand.logo.url">
+                        </div>
+                    </div>
+                    <div class="m-t-16px"></div>
+                    <div class="__content">
+                        <div class="__hdr-4">{{brand.name}}</div>
+                        <div class="m-t-4px"></div>
+                        <div class="__caption-1">{{brand.storefront.name}}</div>
+                        <div class="m-t-8px"></div>
+                        <p class="__caption-2 __ell-3" [innerHTML]="brand.description"></p>
+                    </div>
+                    <div class="m-t-20px"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

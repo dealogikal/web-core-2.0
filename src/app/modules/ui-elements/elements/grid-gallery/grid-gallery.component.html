@@ -1,0 +1,89 @@
+<div class="__gallery__content" *ngIf="images$ | async as images">
+    <div class="__grid__row">
+        <div class="__item__wrapper __rad-tl  __rad-bl">
+
+            <ui-uploader *ngIf="!images[0]" [multiple]="true" [folder]="folder" [icon]="icon" [accept]="accept"
+                (onUploadComplete)="onUpload($event)">
+            </ui-uploader>
+
+            <div class="__image" *ngIf="images[0]" [style.background]="'url(' + images[0].url + '), var(--bg-color-disabled)'"></div>
+
+            <div class="__btn-wrapper" *ngIf="images[0]">
+                <div class="__btn __btn-icon __btn-icon-md shade" (click)="onDelete(0)">
+                    <div class="__icon" [inlineSVG]="'assets/icons/trash.svg'"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="m-l-8px"></div>
+    <div class="__grid__row">
+        <div class="__grid__col">
+            <div class="__item__wrapper">
+                <ui-uploader *ngIf="!images[1]" [multiple]="true" [folder]="folder" [icon]="icon" [accept]="accept"
+                    (onUploadComplete)="onUpload($event)">
+                </ui-uploader>
+
+                <div class="__image" *ngIf="images[1]" [style.background]="'url(' + images[1].url + '), var(--bg-color-disabled)'"></div>
+
+                <div class="__btn-wrapper" *ngIf="images[1]">
+                    <div class="__btn __btn-icon __btn-icon-md shade" (click)="onDelete(1)">
+                        <div class="__icon" [inlineSVG]="'assets/icons/trash.svg'"></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="m-t-8px"></div>
+            <div class="__item__wrapper">
+
+                <ui-uploader *ngIf="!images[2]" [multiple]="true" [folder]="folder" [icon]="icon" [accept]="accept"
+                    (onUploadComplete)="onUpload($event)">
+                </ui-uploader>
+
+                <div class="__image" *ngIf="images[2]" [style.background]="'url(' + images[2].url + '), var(--bg-color-disabled)'"></div>
+
+                <div class="__btn-wrapper" *ngIf="images[2]">
+                    <div class="__btn __btn-icon __btn-icon-md shade" (click)="onDelete(2)">
+                        <div class="__icon" [inlineSVG]="'assets/icons/trash.svg'"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="m-l-8px"></div>
+        <div class="__grid__col">
+            <div class="__item__wrapper __rad-tr">
+
+                <ui-uploader *ngIf="!images[3]" [multiple]="true" [folder]="folder" [icon]="icon" [accept]="accept"
+                    (onUploadComplete)="onUpload($event)">
+                </ui-uploader>
+
+                <div class="__image" *ngIf="images[3]" [style.background]="'url(' + images[3].url + '), var(--bg-color-disabled)'"></div>
+
+                <div class="__btn-wrapper" *ngIf="images[3]">
+                    <div class="__btn __btn-icon __btn-icon-md shade" (click)="onDelete(3)">
+                        <div class="__icon" [inlineSVG]="'assets/icons/trash.svg'"></div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="m-t-8px"></div>
+            <div class="__item__wrapper __rad-br">
+
+                <div class="__image" *ngIf="images[4]" [style.background]="'url(' + images[4].url + '), var(--bg-color-disabled)'"></div>
+
+                <ui-uploader *ngIf="!images[4]" [label]="'Upload photos'" [multiple]="true" [folder]="folder"
+                    [accept]="accept" (onUploadComplete)="onUpload($event)">
+                </ui-uploader>
+
+                <div class="__btn-wrapper" *ngIf="images[4]">
+                    <div class="__btn __btn-icon __btn-icon-md shade" (click)="onDelete(4)">
+                        <div class="__icon" [inlineSVG]="'assets/icons/trash.svg'"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,179 @@
+<ng-container *ngIf="ready$ | async">
+    <div class="m-t-40px"></div>
+
+    <div class="__section">
+        <div class="__section__padding">
+            <div class="__section__content">
+
+                <div class="__crumbs">
+                    <span class="__crumb link"
+                        [routerLink]="(product$ | async) ? ['../../management/products'] : ['../management/products']">Products</span>
+                    <span class="__crumb__separator" [inlineSVG]="'assets/icons/chevron.right.svg'"></span>
+                    <span class="__crumb">{{(title$ | async)}}</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="m-t-12px"></div>
+
+    <div class="__section">
+        <div class="__section__padding">
+            <div class="__section__content">
+                <div class="__hdr-1">{{(title$ | async)}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="m-t-48px"></div>
+
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="__section">
+            <div class="__section__padding">
+                <div class="__section__content">
+
+                    <div class="__hdr-5">Product Name</div>
+                    <div class="m-t-8px"></div>
+                    <div class="__body-2">Please don't use any sensitive or forbidden words</div>
+                    <div class="m-t-12px"></div>
+                    <div class="form-field">
+                        <input type="text" id="productName" placeholder="productName" autocomplete="off"
+                            formControlName="name">
+                        <label for="productName">Product Name</label>
+                    </div>
+
+
+                    <div class="m-t-48px"></div>
+
+                    <div class="__hdr-5">Category</div>
+                    <div class="m-t-8px"></div>
+                    <div class="__body-2">Please select category. This will be used for filtering products</div>
+                    <div class="m-t-12px"></div>
+                    <div class="form-field">
+                        <input type="text" id="productCategory" placeholder="productCategory" autocomplete="off"
+                            formControlName="category">
+                        <label for="productCategory">Category</label>
+                    </div>
+
+
+                    <div class="m-t-48px"></div>
+
+                    <div class="__hdr-5">Product Description</div>
+                    <div class="m-t-8px"></div>
+                    <div class="__body-2">Enter the description or information about the brand</div>
+                    <div class="m-t-12px"></div>
+                    <div class="form-field">
+                        <p contenteditable id="productDescription" placeholder="productDescription"
+                            formControlName="description">
+                        </p>
+                        <label for="productName">Product Description</label>
+                    </div>
+
+
+                    <div class="m-t-48px"></div>
+
+                    <div class="__hdr-5">Images and Videos</div>
+                    <div class="m-t-8px"></div>
+                    <div class="__body-2">Resolution should not exceed 1280 x 1280 pixel, maximum size 1 MB. Images
+                        and
+                        videos will be
+                        display in your store front</div>
+                    <div class="m-t-12px"></div>
+                    <ui-grid-gallery [label]="'Upload photos'" [images]="form.controls.visual_medium.value"
+                        [folder]="'core/store-photos-and-videos'" [icon]="'assets/icons/photo.svg'"
+                        [accept]="'image/jpeg, image/png'" (onUploadComplete)="onUploadImage($event)"
+                        (onDeleteItem)="onDeleteImage($event)"></ui-grid-gallery>
+                    <div class="m-t-12px"></div>
+
+
+                    <div class="m-t-48px"></div>
+
+                    <div class="__hdr-5">Specifications</div>
+                    <div class="m-t-8px"></div>
+                    <div class="__body-2">Add specification details about the product.</div>
+                    <div class="m-t-12px"></div>
+
+                    <div class="__draggable-list" cdkDropList (cdkDropListDropped)="drop($event)">
+
+                        <div class="__draggable-box" formArrayName="specifications"
+                            *ngFor="let item of form.get('specifications')['controls']; let i = index;" cdkDrag
+                            cdkDragLockAxis="y">
+                            <div class="__draggable-box__content" [formGroupName]="i">
+                                <div class="m-t-8px"></div>
+                                <div class="fx-layout-row">
+                                    <div class="__btn __btn-icon __btn-icon-md shade" cdkDragHandle>
+                                        <div class="__icon" [inlineSVG]="'assets/icons/arrow.up.down.svg'"></div>
+                                    </div>
+                                    <div class="m-l-8px"></div>
+                                    <div class="__btn __btn-icon __btn-icon-md shade" (click)="removeSpec(i)">
+                                        <div class="__icon" [inlineSVG]="'assets/icons/trash.svg'"></div>
+                                    </div>
+                                </div>
+                                <div class="m-t-8px"></div>
+                                <div class="form-field">
+                                    <input type="text" id="name" placeholder="name" autocomplete="off"
+                                        formControlName="name">
+                                    <label for="name">Specification Name</label>
+                                </div>
+                                <div class="form-field">
+                                    <p contenteditable id="description" placeholder="description"
+                                        formControlName="description" (mousedown)="$event.stopPropagation()">
+                                    </p>
+                                    <label for="description">Specification Description</label>
+                                </div>
+                            </div>
+                            <div class="__draggable-placeholder" *cdkDragPlaceholder></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="m-t-24px" *ngIf="form.controls.specifications.value.length"></div>
+
+                    <div class="__add-btn" (click)="addSpec()">
+                        <div>
+                            <div class="__btn sm">Add Specification</div>
+                        </div>
+                    </div>
+
+                    <div class="m-64px"></div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="__section __sticky">
+            <div class="__section__padding">
+                <div class="__section__content">
+
+                    <div class="fx-layout-row fx-align-start-center">
+
+                        <!-- 
+                        <button class="__btn lg shade">
+                            <span class="__hide">Save</span>
+                        </button> -->
+
+
+                        <button type="submit" class="__ui-btn primary"
+                            [class.disabled]="!(hasChanged$ | async) || (saving$ | async)">
+                            <span [class.__hide]="(saving$ | async)">
+                                {{!(hasChanged$ | async) ? 'No changes' : (product$ | async) ? 'Save' : 'Submit'}}
+                            </span>
+                            <ui-loader-ell *ngIf="(saving$ | async)"></ui-loader-ell>
+                        </button>
+                        <div class="m-l-16px"></div>
+
+                        <button class="__btn lg shade" *ngIf="product$ | async">Remove Brand</button>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </form>
+</ng-container>

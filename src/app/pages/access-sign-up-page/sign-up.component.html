@@ -1,0 +1,184 @@
+<dealo-header [expandOnTop]="false" [collapseOnStart]="true" [typeahead]="false"></dealo-header>
+
+<form class="__wrapper" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="__headline">Lorem Ipsum</div>
+    <div class="__subline">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+        aliquip ex ea commodo consequat.
+    </div>
+    <div class="m-t-40px"></div>
+
+    <div class="__hdr-4">Enter your name</div>
+
+    <div class="m-t-16px"></div>
+
+    <div class="fx-layout-row">
+        <div class="form-field">
+            <input type="text" id="firstName" placeholder="firstName" autocomplete="off" formControlName="firstName"
+                [class.error]="form.controls['firstName'].hasError('required') && !form.controls['firstName'].pristine && form.controls['firstName'].touched">
+            <label for="firstName">First Name</label>
+            <div class="__err"
+                *ngIf="form.controls['firstName'].hasError('required') && !form.controls['firstName'].pristine && form.controls['firstName'].touched">
+                <div class="__icon" [inlineSVG]="'assets/icons/alert-circle-fill.svg'"></div>
+                <span>&nbsp;This field is required</span>
+            </div>
+        </div>
+        <div class="m-l-16px"></div>
+        <div class="form-field">
+            <input type="text" id="lastName" placeholder="lastName" autocomplete="off" formControlName="lastName"
+                [class.error]="form.controls['lastName'].hasError('required') && !form.controls['lastName'].pristine && form.controls['lastName'].touched">
+            <label for="lastName">Last Name</label>
+            <div class="__err"
+                *ngIf="form.controls['lastName'].hasError('required') && !form.controls['lastName'].pristine && form.controls['lastName'].touched">
+                <div class="__icon" [inlineSVG]="'assets/icons/alert-circle-fill.svg'"></div>
+                <span>&nbsp;This field is required</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="m-t-16px"></div>
+
+    <div class="__hdr-4">Enter your contact information</div>
+
+    <div class="m-t-16px"></div>
+
+    <div class="fx-layout-row">
+        <div class="form-field">
+            <input type="text" id="mobileNumber" placeholder="mobileNumber" autocomplete="off"
+                formControlName="mobileNumber"
+                [class.error]="form.controls['mobileNumber'].hasError('required') && !form.controls['mobileNumber'].pristine && form.controls['mobileNumber'].touched">
+            <label for="mobileNumber">Mobile Number</label>
+            <div class="__err"
+                *ngIf="form.controls['mobileNumber'].hasError('required') && !form.controls['mobileNumber'].pristine && form.controls['mobileNumber'].touched">
+                <div class="__icon" [inlineSVG]="'assets/icons/alert-circle-fill.svg'"></div>
+                <span>&nbsp;This field is required</span>
+            </div>
+        </div>
+        <div class="m-l-16px"></div>
+        <div class="form-field">
+            <input type="email" id="email" placeholder="email" autocomplete="off" formControlName="email"
+                [class.error]="(form.controls['email'].hasError('required') && !form.controls['email'].pristine && form.controls['email'].touched) || (form.controls['email'].hasError('email') && !form.controls['email'].pristine && form.controls['email'].touched)">
+            <label for="email">Email</label>
+            <div class="__err"
+                *ngIf="form.controls['email'].hasError('required') && !form.controls['email'].pristine && form.controls['email'].touched">
+                <div class="__icon" [inlineSVG]="'assets/icons/alert-circle-fill.svg'"></div>
+                <span>&nbsp;This field is required</span>
+            </div>
+            <div class="__err"
+                *ngIf="form.controls['email'].hasError('email') && !form.controls['email'].pristine && form.controls['email'].touched">
+                <div class="__icon" [inlineSVG]="'assets/icons/alert-circle-fill.svg'"></div>
+                <span>&nbsp;That doesn't appear to be a valid email address</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="m-t-16px"></div>
+
+    <div class="__hdr-4">Tell us about your company</div>
+
+    <div class="m-t-16px"></div>
+
+    <div class="form-field">
+        <input type="text" id="companyName" placeholder="companyName" autocomplete="off" formControlName="companyName"
+            [class.error]="form.controls['companyName'].hasError('required') && !form.controls['companyName'].pristine && form.controls['companyName'].touched">
+        <label for="companyName">Company Name</label>
+        <div class="__err"
+            *ngIf="form.controls['companyName'].hasError('required') && !form.controls['companyName'].pristine && form.controls['companyName'].touched">
+            <div class="__icon" [inlineSVG]="'assets/icons/alert-circle-fill.svg'"></div>
+            <span>&nbsp;This field is required</span>
+        </div>
+    </div>
+
+    <!-- <div class="m-t-8px"></div> -->
+
+    <div class="form-field">
+        <p contenteditable id="companyDescription" placeholder="companyDescription"
+            formControlName="companyDescription"></p>
+        <label for="companyDescription">
+            <span>Nature of your business</span>
+            <span class="__field-mark"> - Optional</span>
+        </label>
+    </div>
+
+    <div class="m-t-16px"></div>
+
+    <div><span class="__hdr-4">Purpose of sign up</span><span class="__field-mark"> - You can select both</span>
+    </div>
+
+    <div class="m-t-16px"></div>
+
+    <div class="fx-layout-column">
+        <ng-container *ngFor="let item of purposeOfSignup.controls; let i = index">
+            <div class="form-field" formArrayName="purposeOfSignup">
+                <input type="checkbox" [attr.id]="purposeOfSignupData[i].value" [formControlName]="i">
+                <label [attr.for]="purposeOfSignupData[i].value">{{purposeOfSignupData[i].label}}</label>
+            </div>
+        </ng-container>
+    </div>
+
+    <div class="form-field" *ngIf="showBuying$ | async">
+        <p contenteditable id="commoditiesBuying" placeholder="commoditiesBuying" formControlName="commoditiesBuying">
+        </p>
+        <label for="commoditiesBuying">
+            <span>Products interested buying</span>
+            <span class="__field-mark"> - Optional</span>
+        </label>
+    </div>
+
+    <div class="form-field" *ngIf="showSelling$ | async">
+        <p contenteditable id="commoditiesSelling" placeholder="commoditiesSelling"
+            formControlName="commoditiesSelling">
+        </p>
+        <label for="commoditiesSelling">
+            <span>Products interested selling</span>
+            <span class="__field-mark"> - Optional</span>
+        </label>
+    </div>
+
+    <div class="m-t-16px"></div>
+
+    <div class="__hdr-4">Best time we can call you for a demo</div>
+
+    <div class="m-t-16px"></div>
+
+    <div class="fx-layout-row">
+        <div class="form-field">
+            <input type="date" id="demoDate" placeholder="demoDate" autocomplete="off" formControlName="demoDate"
+                [class.error]="form.controls['demoDate'].hasError('required') && !form.controls['demoDate'].pristine && form.controls['demoDate'].touched">
+            <label for="demoDate">Date</label>
+            <div class="__err"
+                *ngIf="form.controls['demoDate'].hasError('required') && !form.controls['demoDate'].pristine && form.controls['demoDate'].touched">
+                <div class="__icon" [inlineSVG]="'assets/icons/alert-circle-fill.svg'"></div>
+                <span>&nbsp;This field is required</span>
+            </div>
+        </div>
+        <div class="m-l-16px"></div>
+        <div class="form-field">
+            <input type="time" id="demoTime" placeholder="demoTime" autocomplete="off" formControlName="demoTime"
+                [class.error]="form.controls['demoTime'].hasError('required') && !form.controls['demoTime'].pristine && form.controls['demoTime'].touched">
+            <label for="demoTime">Time</label>
+            <div class="__err"
+                *ngIf="form.controls['demoTime'].hasError('required') && !form.controls['demoTime'].pristine && form.controls['demoTime'].touched">
+                <div class="__icon" [inlineSVG]="'assets/icons/alert-circle-fill.svg'"></div>
+                <span>&nbsp;This field is required</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-field">
+        <p contenteditable id="clientNotes" placeholder="clientNotes" formControlName="clientNotes">
+        </p>
+        <label for="commoditiesSelling">
+            <span>Notes</span>
+            <span class="__field-mark"> - Optional</span>
+        </label>
+    </div>
+
+    <div class="m-t-16px"></div>
+    <div class="fx-layout-row fx-align-start-center">
+        <button type="submit" class="__btn lg primary">Request a demo</button>
+    </div>
+    <div class="m-t-40px"></div>
+
+</form>

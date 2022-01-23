@@ -1,0 +1,42 @@
+<div class="m-t-16px"></div>
+
+<div class="__section">
+    <div class="__section__padding">
+        <div class="__section__content">
+            <div class="__list-wrapper">
+
+                <div class="__add-btn" [routerLink]="['../../new-product']">
+                    <div>
+                        <div class="__btn sm">Create Product</div>
+                    </div>
+                </div>
+
+                <div class="__card" *ngFor="let product of products$ | async">
+                    
+                    <div class="__header">
+                        <div class="__photo __bottom-shadow">
+                            <img [attr.src]="product.visual_medium[0].url">
+                        </div>
+
+                        <div class="__btn-wrapper">
+                            <div class="__btn __btn-icon __btn-icon-md shade" [routerLink]="['../../product/', product.url]">
+                                <div class="__icon" [inlineSVG]="'assets/icons/pencil.svg'"></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="__content">
+                        <div class="__hdr-5">{{product.name}}</div>
+                        <div class="m-t-4px"></div>
+                        <div class="__caption-1">{{product.category}}</div>
+                        <div class="m-t-8px"></div>
+                        <p class="__caption-2 __ell-3" [innerHTML]="product.description"></p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

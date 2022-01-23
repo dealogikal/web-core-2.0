@@ -1,0 +1,33 @@
+<div class="m-t-24px"></div>
+
+<div class="__section">
+    <div class="__section__padding">
+        <div class="__section__content">
+            <div class="__list-wrapper">
+
+                <div class="__card" *ngFor="let product of products$ | async"
+                    [routerLink]="['../../../product', product.url]">
+
+                    <div class="__photo" [style.background-image]="'url(' + product.visual_medium[0].url + ')'">
+                    </div>
+
+                    <div class="__content">
+                        <div class="__hdr-5 __ell-1">{{product.name}}</div>
+                        <div class="m-t-4px"></div>
+                        <div class="__caption-1">{{product.category}}</div>
+                        <div class="m-t-8px"></div>
+                        <p class="__caption-2 __ell-3" [innerHTML]="product.description"></p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="m-t-24px"></div>
+
+<div class="m-t-24px"></div>
+
+<div class="m-t-24px"></div>

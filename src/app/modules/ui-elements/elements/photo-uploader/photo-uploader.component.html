@@ -1,0 +1,11 @@
+<ui-uploader [label]="'Upload logo'" [multiple]="true" [folder]="folder" [icon]="icon" [accept]="accept"
+    (onUploadComplete)="onUpload($event)">
+</ui-uploader>
+
+<div class="__image" *ngIf="image$ | async as image" [style.background]="'url(' + image.url + '), var(--bg-color-disabled)'"></div>
+
+<div class="__btn-wrapper" *ngIf="(image$ | async).url">
+    <div class="__btn __btn-icon __btn-icon-md shade">
+        <div class="__icon" [inlineSVG]="'assets/icons/pencil.svg'"></div>
+    </div>
+</div>

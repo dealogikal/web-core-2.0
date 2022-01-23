@@ -1,0 +1,7 @@
+@import "flex.scss";
+@import "helper.scss";
+
+:host {
+    @extend .fx-layout-column;
+    width: 100%;
+}

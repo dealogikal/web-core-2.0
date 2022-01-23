@@ -1,0 +1,57 @@
+@import "flex.scss";
+@import "helper.scss";
+@import "fonts.scss";
+
+:host {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    .__backdrop {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba($color: #000000, $alpha: .5);
+        backdrop-filter: blur(4px);
+    }
+    .__modal {
+        position: absolute;
+        width: 1000px;
+        height: 600px;
+        background-color: var(--bg-color-secondary);
+        border-radius: calc(var(--border-radius) * 2);
+        overflow: hidden;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        @extend .fx-layout-row;
+
+        .__content {
+            width: 100%;
+            max-width: 500px;
+            padding: 24px 40px;
+            @extend .fx-layout-column;
+            .__brand {
+                @extend .fx-layout-row;
+                @extend .fx-align-start-center;
+                .__logo {
+                    width: 32px;
+                    height: 32px;
+                }
+                .__type {
+                    width: 100px;
+                    height: 32px;
+                }
+            }
+        }
+
+        .__meta {
+            width: 100%;
+            background: linear-gradient(225deg, #cdddf4 3.26%, #cdbafa 100%);
+        }
+    }
+}

@@ -1,0 +1,211 @@
+<dealo-header [expandOnTop]="false" [collapseOnStart]="true" [fixed]="false"></dealo-header>
+
+<ng-container *ngIf="product$ | async as product">
+
+    <div class="__section">
+        <div class="__section__padding">
+            <div class="__section__content">
+                <div class="m-t-48px"></div>
+                <div class="__hdr-2">{{product.name}}</div>
+                <div class="m-t-8px"></div>
+                <div class="__crumbs">
+                    <span class="__crumb">
+                        Automotive Diesel Oil
+                    </span>
+                    <span class="__dot-separator">·</span>
+                    <span class="__crumb">
+                        <div class="__body-2">100k Liters Sold</div>
+                    </span>
+                    <!-- <span class="__dot-separator">·</span>
+                    <span class="__crumb">
+                        Petrochemicals
+                    </span> -->
+                </div>
+                <div class="m-t-24px"></div>
+                <div class="__separator"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="__section">
+        <div class="__section__padding">
+            <div class="__section__content">
+                <div class="fx-layout-row">
+                    <div class="fx-layout-column">
+
+
+                        <div class="m-t-32px"></div>
+                        <p class="__body-2" [innerHTML]="product.description"></p>
+                        <!-- <div class="m-t-16px"></div> -->
+                        <!-- __ell-7 -->
+                        <!-- <div class="__ui-link md">Show more</div> -->
+                        <div class="m-t-32px"></div>
+                        <div class="__separator"></div>
+
+                        <div class="m-t-32px"></div>
+                        <ng-container *ngFor="let item of product.specifications">
+                            <div class="fx-layout-column">
+                                <div class="__hdr-5">{{item.name}}</div>
+                                <div class="m-t-4px"></div>
+                                <p class="__body-2" [innerHTML]="item.description"></p>
+                                <div class="m-t-24px"></div>
+                            </div>
+                        </ng-container>
+                        <div class="m-t-16px"></div>
+                        <div class="__separator"></div>
+
+
+                        <div class="m-t-32px"></div>
+                        <div class="__hdr-3">Supported Locations</div>
+                        <div class="m-t-8px"></div>
+                        <div class="__body-2 caption">More than 50+ location supported.</div>
+                        <div class="m-t-16px"></div>
+                        <div class="location-wrapper">
+                            <div class="__pill">
+                                <div class="fx-layout-column">
+                                    <div class="__body-2 primary">Cebu</div>
+                                </div>
+                            </div>
+                            <div class="__pill">
+                                <div class="fx-layout-column">
+                                    <div class="__body-2 primary">Bohol</div>
+                                </div>
+                            </div>
+                            <div class="__pill">
+                                <div class="fx-layout-column">
+                                    <div class="__body-2 primary">Negros Occidental</div>
+                                </div>
+                            </div>
+                            <div class="__pill">
+                                <div class="fx-layout-column">
+                                    <div class="__body-2 primary">Siquijor</div>
+                                </div>
+                            </div>
+                            <div class="__pill">
+                                <div class="fx-layout-column">
+                                    <div class="__body-2 primary">Cavite</div>
+                                </div>
+                            </div>
+                            <div class="__pill">
+                                <div class="fx-layout-column">
+                                    <div class="__body-2 primary">Laguna</div>
+                                </div>
+                            </div>
+                            <div class="__pill">
+                                <div class="fx-layout-column">
+                                    <div class="__body-2 primary">Batangas</div>
+                                </div>
+                            </div>
+                            <div class="__pill">
+                                <div class="fx-layout-column">
+                                    <div class="__body-2 primary">Rizal</div>
+                                </div>
+                            </div>
+                            <div class="__pill">
+                                <div class="fx-layout-column">
+                                    <div class="__body-2 primary">Quezon</div>
+                                </div>
+                            </div>
+                            <div class="__pill">
+                                <div class="fx-layout-column">
+                                    <div class="__body-2 primary">Metro Manila</div>
+                                </div>
+                            </div>
+                            <div class="__pill">
+                                <div class="fx-layout-column">
+                                    <div class="__body-2 primary">Pampanga</div>
+                                </div>
+                            </div>
+                            <div class="__pill">
+                                <div class="fx-layout-column">
+                                    <div class="__body-2 primary">Bataan</div>
+                                </div>
+                            </div>
+                            <div class="__pill">
+                                <div class="fx-layout-column">
+                                    <div class="__body-2 primary">Bulacan</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="m-t-16px"></div>
+                        <div class="__ui-link md">Show more</div>
+                    </div>
+
+
+                    <div class="__form-wrapper">
+                        <div class="__form-box">
+
+                            <div class="__amount">
+                                <div class="form-field ghost fixed sm">
+                                    <div class="fw-600 __label">QUANTITY</div>
+                                    <input type="text" id="" placeholder="Enter quantity" autocomplete="off">
+                                </div>
+                                <div class="form-field ghost fixed sm">
+                                    <div class="fw-600 __label">UNIT</div>
+                                    <input type="text" id="" placeholder="Choose unit" autocomplete="off">
+                                </div>
+                            </div>
+
+                            <div class="__location">
+                                <div class="form-field ghost fixed sm">
+                                    <div class="fw-600 __label">LOCATION</div>
+                                    <input type="text" id="" placeholder="Set location" autocomplete="off">
+                                </div>
+                            </div>
+
+                            <div class="__location">
+                                <div class="form-field ghost fixed sm">
+                                    <div class="fw-600 __label">ADDRESS</div>
+                                    <input type="text" id="" placeholder="Enter Address" autocomplete="off">
+                                </div>
+                            </div>
+
+                            <div class="__date">
+                                <div class="form-field ghost fixed sm">
+                                    <div class="fw-600 __label">SHIPPING DATE</div>
+                                    <input type="text" id="" placeholder="Set date" autocomplete="off">
+                                </div>
+                                <div class="form-field ghost fixed sm">
+                                    <div class="fw-600 __label">SHIPPING TIME</div>
+                                    <input type="text" id="" placeholder="Set time" autocomplete="off">
+                                </div>
+                            </div>
+
+                            <div class="__notes">
+                                <div class="form-field ghost fixed sm">
+                                    <div class="fw-600 __label">NOTES</div>
+                                    <input type="text" id="" placeholder="Leave a notes" autocomplete="off">
+                                </div>
+                            </div>
+
+                            <div class="m-t-16px"></div>
+
+                            <div class="__ui-btn primary">Request a qoute</div>
+
+                            <!-- <div class="m-t-8px"></div>
+
+                            <div class="__ui-btn primary outlined">Get lowest price</div> -->
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="__section">
+        <div class="__section__padding">
+            <div class="__section__content">
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</ng-container>

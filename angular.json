@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "web-v2": {
+    "web-core-2.0": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -15,17 +15,20 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/web-v2",
+            "outputPath": "dist/web-core-2.0",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "allowedCommonJsDependencies": [
+              "crypto"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -33,6 +36,11 @@
             "styles": [
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/app/styles"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -41,12 +49,12 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "150kb",
+                  "maximumError": "150kb"
                 }
               ],
               "fileReplacements": [
@@ -72,10 +80,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "web-v2:build:production"
+              "browserTarget": "web-core-2.0:build:production"
             },
             "development": {
-              "browserTarget": "web-v2:build:development"
+              "browserTarget": "web-core-2.0:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +91,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "web-v2:build"
+            "browserTarget": "web-core-2.0:build"
           }
         },
         "test": {
@@ -107,5 +115,5 @@
       }
     }
   },
-  "defaultProject": "web-v2"
+  "defaultProject": "web-core-2.0"
 }

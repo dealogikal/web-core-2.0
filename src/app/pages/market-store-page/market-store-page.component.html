@@ -1,0 +1,70 @@
+<dealo-header [expandOnTop]="false" [collapseOnStart]="true" [fixed]="false"></dealo-header>
+
+<ng-container *ngIf="store$ | async as store">
+
+    <div class="__banner __bottom-shadow-inner"
+        [style.background]="'url(' + store.visual_medium[0].url + '), var(--bg-color-disabled)'">
+        <div class="__section __banner-section">
+            <div class="__section__padding __banner-section__padding">
+                <div class="__section__content __banner-section__content">
+                    <div class="__logo" [style.background-image]="'url(' + store.logo.url + ')'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="__section">
+        <div class="__section__padding">
+            <div class="__section__content">
+                <div class="m-t-24px"></div>
+                <div class="__hdr-2">{{store.name}}</div>
+                <div class="m-t-8px"></div>
+
+                <div class="__crumbs">
+                    <span class="__badge primary">VERIFIED</span>
+                    <span class="__dot-separator">·</span>
+                    <span class="__crumb">
+                        Petroleum
+                    </span>
+                    <span class="__dot-separator">·</span>
+                    <span class="__crumb">
+                        Petrochemicals
+                    </span>
+                </div>
+
+
+
+                <div class="m-t-24px"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="__section __bar">
+        <div class="__section__padding">
+            <div class="__section__content __bar__content">
+                <div class="fx-layout-row fx-align-start-center">
+                    <div class="__search-bar"></div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <div class="m-t-24px"></div> -->
+
+
+    <div class="__section __sticky-top">
+        <div class="__section__padding">
+            <div class="__section__content">
+                <div class="__tabs">
+                    <div class="__tab__item lg" [routerLink]="item.link" routerLinkActive="active"
+                        *ngFor="let item of tabs$ | async">{{item.label}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="__separator"></div>
+    </div>
+
+    <router-outlet></router-outlet>
+
+</ng-container>

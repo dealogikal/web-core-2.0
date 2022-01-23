@@ -1,0 +1,79 @@
+<div class="__top-section">
+    <div class="__brand" [routerLink]="['/']">
+        <div class="__logo __light" [inlineSVG]="'assets/logo/logo-light.svg'"></div>
+        <div class="__logo __dark" [inlineSVG]="'assets/logo/logo-dark.svg'"></div>
+        <div class="__type __light" [inlineSVG]="'assets/logo/type-light.svg'"></div>
+        <div class="__type __dark" [inlineSVG]="'assets/logo/type-dark.svg'"></div>
+    </div>
+    <div class="__menu-wrapper">
+
+        <!-- <div class="__btn __btn-md __become-a-seller">Get Started</div>
+        <div class="m-l-8px"></div> -->
+        <div class="__btn sm __become-a-seller">Become a Seller</div>
+        <div class="m-l-8px"></div>
+        <div uiInlay class="__profile-menu" [inlay]="menuInlay">
+            <div class="fx-layout-row fx-align-center-center">
+                <div class="m-l-12px"></div>
+                <div class="__icon md" [inlineSVG]="'assets/icons/menu.svg'"></div>
+                <div class="m-l-8px"></div>
+                <div class="__avatar __avatar-sm" [inlineSVG]="'assets/icons/profile.svg'"></div>
+                <div class="m-l-2px"></div>
+            </div>
+
+            <ui-inlay class="__pop-menu" #menuInlay>
+                <ng-template uiInlayContent>
+                    <div class="p-t-8px"></div>
+                    <ng-container *ngIf="!(hasAuth$ | async)">
+                        <ui-inlay-close>
+                            <div class="__menu-item __hl" (click)="onLogin()">Log in</div>
+                        </ui-inlay-close>
+                        <ui-inlay-close>
+                            <div class="__menu-item" [routerLink]="['/sign-up']">Sign up</div>
+                        </ui-inlay-close>
+                    </ng-container>
+                    <ng-container *ngIf="(hasAuth$ | async)">
+                        <ui-inlay-close>
+                            <div class="__menu-item __hl" [routerLink]="['/account/settings']">Account</div>
+                        </ui-inlay-close>
+                        <ui-inlay-close>
+                            <div class="__menu-item __hl" [routerLink]="['/account/store/management/']">Store Management</div>
+                        </ui-inlay-close>
+                    </ng-container>
+                    <div class="m-t-8px"></div>
+                    <div class="__separator"></div>
+                    <div class="m-t-8px"></div>
+                    <ui-inlay-close [value]="'test'">
+                        <div class="__menu-item">Sell your products</div>
+                    </ui-inlay-close>
+                    <div class="__menu-item">Help</div>
+                    <div class="__menu-item">Terms and Privacy</div>
+                    <ng-container *ngIf="(hasAuth$ | async)">
+                        <div class="m-t-8px"></div>
+                        <div class="__separator"></div>
+                        <div class="m-t-8px"></div>
+                        <ui-inlay-close>
+                            <div class="__menu-item" (click)="onLogout()">Logout</div>
+                        </ui-inlay-close>
+                    </ng-container>
+                    <div class="p-t-8px"></div>
+                </ng-template>
+            </ui-inlay>
+        </div>
+
+    </div>
+</div>
+
+<div class="__form-section" *ngIf="typeahead">
+    <div class="__tabs-wrapper">
+        <div class="__fancy-tabs">
+            <div class="__tab__item active">Get Lowest Prices</div>
+            <div class="__tab__item">Find Brands</div>
+            <div class="__tab__item">Find Suppliers</div>
+        </div>
+    </div>
+
+    <div class="__typeahead-wrapper">
+        <type-ahead (onStart)="onStartHandler()"></type-ahead>
+    </div>
+
+</div>

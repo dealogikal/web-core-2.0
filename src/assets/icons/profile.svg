@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Generator: Apple Native CoreSVG 149-->
+<!DOCTYPE svg
+PUBLIC "-//W3C//DTD SVG 1.1//EN"
+       "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 712 717;" xml:space="preserve">
+       <style>
+              .multicolor-0:tintColor {fill:#007AFF;opacity:1.0}
+              .multicolor-1:white {fill:#FFFFFF;opacity:1.0}
+
+              .hierarchical-0:tertiary {fill:#8E8E8E}
+              .hierarchical-1:primary {fill:#212121}
+
+              .SFSymbolsPreview007AFF {fill:inherit;opacity:1.0}
+              .SFSymbolsPreviewFFFFFF {fill:#FFFFFF;opacity:1.0}
+       </style>
+       <!--glyph: "uni100D5F.medium", point size: 100.0, font version: "17.0d9e1", template writer version: "59"-->
+       <g id="Regular-S" transform="matrix(1 0 0 1 0 85)">
+              <path class="multicolor-0:tintColor hierarchical-0:tertiary SFSymbolsPreview007AFF" d="M46.2402 4.15039Q54.3457 4.15039 61.4746 1.07422Q68.6035-2.00195 74.0479-7.4707Q79.4922-12.9395 82.5928-20.0684Q85.6934-27.1973 85.6934-35.2539Q85.6934-43.3105 82.5928-50.4395Q79.4922-57.5684 74.0234-63.0371Q68.5547-68.5059 61.4258-71.582Q54.2969-74.6582 46.1914-74.6582Q38.1348-74.6582 31.0059-71.582Q23.877-68.5059 18.457-63.0371Q13.0371-57.5684 9.93652-50.4395Q6.83594-43.3105 6.83594-35.2539Q6.83594-27.1973 9.93652-20.0684Q13.0371-12.9395 18.4814-7.4707Q23.9258-2.00195 31.0547 1.07422Q38.1836 4.15039 46.2402 4.15039Z"/>
+              <path class="multicolor-1:white hierarchical-1:primary SFSymbolsPreviewFFFFFF" d="M46.2402-2.44141Q42.041-2.44141 37.8662-3.54004Q33.6914-4.63867 29.9072-6.78711Q26.123-8.93555 23.1445-12.0605Q25.1953-15.2344 28.6621-17.4805Q32.1289-19.7266 36.6211-20.9229Q41.1133-22.1191 46.2402-22.1191Q51.2695-22.1191 55.7617-20.9473Q60.2539-19.7754 63.7451-17.5293Q67.2363-15.2832 69.3359-12.0605Q66.3574-8.93555 62.5732-6.78711Q58.7891-4.63867 54.5898-3.54004Q50.3906-2.44141 46.2402-2.44141ZM46.2402-28.5645Q42.5293-28.6133 39.5508-30.4932Q36.5723-32.373 34.8145-35.6201Q33.0566-38.8672 33.0566-43.0176Q33.0566-46.875 34.8145-50.0977Q36.5723-53.3203 39.5508-55.249Q42.5293-57.1777 46.2402-57.1777Q49.9023-57.1777 52.8809-55.249Q55.8594-53.3203 57.6172-50.0977Q59.375-46.875 59.375-43.0176Q59.375-38.8672 57.6416-35.5957Q55.9082-32.3242 52.9053-30.4199Q49.9023-28.5156 46.2402-28.5645Z"/>
+       </g>
+</svg>
+

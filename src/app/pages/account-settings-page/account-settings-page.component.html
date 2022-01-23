@@ -1,0 +1,38 @@
+<ng-container *ngIf="user$ | async as user">
+    <div class="m-t-40px"></div>
+    <div class="__section">
+        <div class="__section__padding">
+            <div class="__section__content">
+                <div class="__hdr-1">Account</div>
+                <div class="m-t-8px"></div>
+                <div>
+                    <span class="__hdr-4">{{user.first_name}} {{user.last_name}},&nbsp;</span>
+                    <span class="__body-1">{{user.email}}</span>
+                </div>
+                <div class="m-t-40px"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="__section">
+        <div class="__section__padding">
+            <div class="__section__content">
+
+                <div class="__settings-wrapper">
+                    <div class="__setting-card" *ngFor="let item of settingList$ | async">
+                        <div><img [attr.src]="item.icon" alt="item.icon" height="32px" width="auto"></div>
+                        <div class="m-t-16px"></div>
+                        <div class="__hdr-3">{{item.label}}</div>
+                        <div class="m-t-8px"></div>
+                        <div class="__body-1">{{item.info}}</div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+
+</ng-container>

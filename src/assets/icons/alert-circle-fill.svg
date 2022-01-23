@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Generator: Apple Native CoreSVG 149-->
+<!DOCTYPE svg
+PUBLIC "-//W3C//DTD SVG 1.1//EN"
+       "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 100 100" style="enable-background:new 0 0 712 717;" xml:space="preserve">
+ <style>.multicolor-0:systemRedColor {fill:#FF3B30;opacity:1.0}
+.multicolor-1:white {fill:#FFFFFF;opacity:1.0}
+
+.hierarchical-0:tertiary {fill:#8E8E8E}
+.hierarchical-1:primary {fill:#212121}
+
+.SFSymbolsPreviewFF3B30 {fill:#FF3B30;opacity:1.0}
+.SFSymbolsPreviewFFFFFF {fill:#FFFFFF;opacity:1.0}
+</style>
+
+ <!--glyph: "uni100D5F.medium", point size: 100.0, font version: "17.0d9e1", template writer version: "59"-->
+  <g id="Regular-S" transform="matrix(1 0 0 1 0 85)">
+   
+ <path class="multicolor-0:systemRedColor hierarchical-0:tertiary SFSymbolsPreviewFF3B30" d="M46.2402 4.15039Q54.3457 4.15039 61.4746 1.07422Q68.6035-2.00195 74.0479-7.4707Q79.4922-12.9395 82.5928-20.0684Q85.6934-27.1973 85.6934-35.2539Q85.6934-43.3105 82.5928-50.4395Q79.4922-57.5684 74.0234-63.0371Q68.5547-68.5059 61.4258-71.582Q54.2969-74.6582 46.1914-74.6582Q38.1348-74.6582 31.0059-71.582Q23.877-68.5059 18.457-63.0371Q13.0371-57.5684 9.93652-50.4395Q6.83594-43.3105 6.83594-35.2539Q6.83594-27.1973 9.93652-20.0684Q13.0371-12.9395 18.4814-7.4707Q23.9258-2.00195 31.0547 1.07422Q38.1836 4.15039 46.2402 4.15039Z"/>
+   <path class="multicolor-1:white hierarchical-1:primary SFSymbolsPreviewFFFFFF" d="M46.2402-28.0273Q42.8223-28.0273 42.7246-31.543L42.1875-52.3438Q42.1387-54.0527 43.2861-55.1758Q44.4336-56.2988 46.2402-56.2988Q47.998-56.2988 49.1699-55.1514Q50.3418-54.0039 50.293-52.2949L49.707-31.543Q49.6094-28.0273 46.2402-28.0273ZM46.2402-14.7949Q44.3848-14.7949 42.9932-16.0889Q41.6016-17.3828 41.6016-19.2383Q41.6016-21.0938 42.9932-22.4121Q44.3848-23.7305 46.2402-23.7305Q48.1445-23.7305 49.5361-22.4365Q50.9277-21.1426 50.9277-19.2383Q50.9277-17.334 49.5361-16.0645Q48.1445-14.7949 46.2402-14.7949Z"/>
+  </g>
+</svg>

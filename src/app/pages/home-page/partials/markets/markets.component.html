@@ -1,0 +1,37 @@
+<div class="__spacer"></div>
+
+
+
+
+
+<div class="__headline">Smart, Simple, Easy Procurement</div>
+<div class="__subline">Access the best deals, payment options, logistics providers, storage options <br> and more
+  through
+  your new <span style="font-weight: bold">one stop catch all procurement shop</span></div>
+
+<div class="p-t-32px"></div>
+
+<div class="fx-layout-row fx-align-spacebetween-center">
+
+  <div class="__hdr-2">Our Markets</div>
+
+  <div class="__btn rounded lg">
+    <!-- <div class="__icon" [inlineSVG]="'assets/icons/search.svg'"></div> -->
+    <span class="__text-gradient">Go to Markets</span>
+  </div>
+
+</div>
+
+<div class="__markets-wrapper">
+  <div class="__market-card" *ngFor="let item of data$ | async" (mouseover)="onMouseOver(item.background)"
+    (mouseout)="onMouseOut()">
+    <div class="__wrapper">
+      <!--  [inlineSVG]="item.icon" -->
+      <div class="__icon">
+        <img width="24px" [attr.src]="item.icon" alt="">
+      </div>
+      <div class="__label" [innerHTML]="item.label"></div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,11 @@
+
+<div class="m-t-16px"></div>
+<div class="__side-menu">
+    <ng-container *ngFor="let item of menuList$ | async">
+        <div class="__menu-item">
+            <span class="__icon md" [inlineSVG]="item.icon"></span>
+            <div class="m-l-24px"></div>
+            <span>{{item.label}}</span>
+        </div>
+    </ng-container>
+</div>
