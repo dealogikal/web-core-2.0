@@ -35,6 +35,7 @@ import { MarketStoreOverviewPageComponent } from './pages/market-store-page-over
 import { MarketStoreProductsPageComponent } from './pages/market-store-page-products/market-store-page-products.component';
 import { MarketStorePageBrandsComponent } from './pages/market-store-page-brands/market-store-page-brands.component';
 import { MarketStorePageDocumentsComponent } from './pages/market-store-page-documents/market-store-page-documents.component';
+import { CategorySelectorComponent } from './pages/aaux/category-selector/category-selector.component';
 
 const PAGES = [
   HomePageComponent,
@@ -47,7 +48,8 @@ const AUX = [
   HeaderComponent,
   FooterComponent,
   TypeAheadComponent,
-  SidemenuComponent
+  SidemenuComponent,
+  CategorySelectorComponent
 ];
 
 const HOMEPAGE = [
@@ -76,6 +78,8 @@ const MARKET = [
   MarketPageComponent,
   MarketStoreOverviewPageComponent,
   MarketStoreProductsPageComponent,
+  MarketStorePageBrandsComponent,
+  MarketStorePageDocumentsComponent,
 ]
 
 @NgModule({
@@ -87,8 +91,7 @@ const MARKET = [
     ...ACCOUNT_PAGE,
     ...STORE_MANAGEMENT,
     ...MARKET,
-    MarketStorePageBrandsComponent,
-    MarketStorePageDocumentsComponent
+    
   ],
   imports: [
     BrowserModule,

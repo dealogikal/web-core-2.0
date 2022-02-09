@@ -52,13 +52,15 @@ export class UiInlayDirective {
   }
 
   openDropdown() {
+    console.log('template >>>', this.inlay.rootTemplate, this.inlay.portalOutlet);
     const template: TemplatePortal = new TemplatePortal(this.inlay.rootTemplate, this.vcr);
     this.inlay.portalOutlet.attachTemplatePortal(template);
     this.clickOutside(this.inlay.outletWrapper, this.origin).subscribe(() => this.close());
   }
 
   close() {
-    this.inlay.portalOutlet.detach()
+    console.log('detach ????');
+    this.inlay.portalOutlet.detach();
   }
 
   clickOutside(inlayRef: ElementRef, origin: HTMLElement) {

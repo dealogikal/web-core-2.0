@@ -28,7 +28,6 @@
 
     <div class="m-t-48px"></div>
 
-
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="__section">
             <div class="__section__padding">
@@ -51,12 +50,28 @@
                     <div class="m-t-8px"></div>
                     <div class="__body-2">Please select category. This will be used for filtering products</div>
                     <div class="m-t-12px"></div>
-                    <div class="form-field">
-                        <input type="text" id="productCategory" placeholder="productCategory" autocomplete="off"
-                            formControlName="category">
-                        <label for="productCategory">Category</label>
-                    </div>
+                    <div uiInlay class="form-btn" [inlay]="categorySelection">
+                        <div class="__category-content">
+                            <div class="__category-wrapper">
+                                <div class="__category" *ngFor="let category of form.controls.category.value">
+                                    <span>{{category.value}}</span>
+                                    <div class="m-l-4px"></div>
+                                    <span class="__icon" [inlineSVG]="'assets/icons/chevron.right.svg'"></span>
+                                    <div class="m-l-4px"></div>
+                                </div>
+                            </div>
+                        
+                            <div class="__ui-btn sm shade">Edit</div>
+    
+                        </div>                    
 
+
+                        <ui-inlay #categorySelection>
+                            <ng-template uiInlayContent>
+                                <category-selector [value]="form.controls.category.value" (onSave)="onSaveHandler($event)"></category-selector>
+                            </ng-template>
+                        </ui-inlay>
+                    </div>
 
                     <div class="m-t-48px"></div>
 
@@ -70,7 +85,6 @@
                         </p>
                         <label for="productName">Product Description</label>
                     </div>
-
 
                     <div class="m-t-48px"></div>
 
@@ -152,12 +166,6 @@
 
                     <div class="fx-layout-row fx-align-start-center">
 
-                        <!-- 
-                        <button class="__btn lg shade">
-                            <span class="__hide">Save</span>
-                        </button> -->
-
-
                         <button type="submit" class="__ui-btn primary"
                             [class.disabled]="!(hasChanged$ | async) || (saving$ | async)">
                             <span [class.__hide]="(saving$ | async)">
@@ -165,9 +173,10 @@
                             </span>
                             <ui-loader-ell *ngIf="(saving$ | async)"></ui-loader-ell>
                         </button>
+
                         <div class="m-l-16px"></div>
 
-                        <button class="__btn lg shade" *ngIf="product$ | async">Remove Brand</button>
+                        <div class="__ui-btn shade" *ngIf="product$ | async">Remove Brand</div>
 
                     </div>
 

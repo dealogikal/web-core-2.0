@@ -5,7 +5,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { BehaviorSubject, combineLatest, Observable, of } from 'rxjs';
 import { debounceTime, map, skip, switchMap, take } from 'rxjs/operators';
+import { UiInlay } from 'src/app/modules/ui-elements/elements/inlay/inlay.service';
 import { BrandService } from 'src/app/services/brand.service';
+import { MarketService } from 'src/app/services/markets.service';
 import { ProductService } from 'src/app/services/product.service';
 import { StoreService } from 'src/app/services/store.service';
 
@@ -33,7 +35,9 @@ export class AccountStoreProductFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private store: StoreService,
     private brand: BrandService,
-    private product: ProductService
+    private product: ProductService,
+    private market: MarketService,
+    private inlay: UiInlay
   ) {
     this.form = this.formBuilder.group({
       name: ['', Validators.required],
@@ -45,6 +49,15 @@ export class AccountStoreProductFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    // this.market.create({
+    //   parent_id: '61f7c09a7ff2b17b4a705c88',
+    //   type: 'product',
+    //   value: 'Unleaded Gasoline'
+    // }).pipe(take(1)).subscribe(e => console.log('test create market entry >>>', e));
+
+    this.market.tree().pipe(take(1)).subscribe(e => console.log('test market tree >>>', e));
+
     this.route.params.pipe(
       untilDestroyed(this),
       switchMap(params => {
@@ -95,8 +108,8 @@ export class AccountStoreProductFormComponent implements OnInit {
         if (!a) return true;
         console.log(a, b);
         const { _id, storefront, brand, status, url, ..._a } = a;
-        console.log('product >>>', JSON.stringify(_a));
-        console.log('form >>>', JSON.stringify(b));
+        // console.log('product >>>', JSON.stringify(_a));
+        // console.log('form >>>', JSON.stringify(b));
         return JSON.stringify(_a) !== JSON.stringify(b);
       })
     );
@@ -118,6 +131,7 @@ export class AccountStoreProductFormComponent implements OnInit {
         });
       }
     });
+
   }
 
   ngOnDestroy(): void {
@@ -174,9 +188,23 @@ export class AccountStoreProductFormComponent implements OnInit {
     moveItemInFormArray(this.specs, event.previousIndex, event.currentIndex);
   }
 
-
   onDeleteImage(index: any): void {
     this.removeImage(index);
+  }
+
+  onSaveHandler(category: any) {
+    this.saving$.next(true);
+    this.form.controls.category.patchValue(category);
+    this.product.get().pipe(take(1)).subscribe(product => {
+      if (product) {
+        this.product.update({ _id: product._id.toString(), category: category }).pipe(take(1)).subscribe((e) => {
+          console.log('update category',e);
+          this.saving$.next(false);
+          // this.inlay.close();
+        });
+      }
+    });
+
   }
 
   onSubmit() {

@@ -13,9 +13,7 @@ import { CdkPortalOutlet } from '@angular/cdk/portal';
   selector: 'ui-inlay',
   template: `
   <ng-template #root>
-    <div class="__box">
-      <ng-container *ngTemplateOutlet="content.tpl"></ng-container>
-    </div>
+    <ng-container *ngTemplateOutlet="content.tpl"></ng-container>
   </ng-template>
   <div #outletWrapper>
     <ng-template cdkPortalOutlet></ng-template>

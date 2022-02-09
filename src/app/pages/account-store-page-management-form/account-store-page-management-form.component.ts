@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { combineLatest, Observable } from 'rxjs';
+import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { debounceTime, filter, map, skip, take } from 'rxjs/operators';
 import { CompanyService } from 'src/app/services/company.service';
 import { StoreService } from 'src/app/services/store.service';
@@ -19,6 +19,7 @@ export class AccountStoreFormComponent implements OnInit {
   form: FormGroup;
   store$: Observable<any>;
   hasChanged$: Observable<any>;
+  saving$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(
     private router: Router,
@@ -147,6 +148,7 @@ export class AccountStoreFormComponent implements OnInit {
   }
 
   onSubmit() {
+    this.saving$.next(true);
     combineLatest([
       this.user.get(),
       this.store.get(),
@@ -158,6 +160,7 @@ export class AccountStoreFormComponent implements OnInit {
         store = this.form.value;
         store.company = user.company;
         this.store.create(store).pipe(take(1)).subscribe(res => {
+          this.saving$.next(false);
           this.router.navigate([`../../${res.data.url}/management/store-info`], { relativeTo: this.route });
         });
         return;
@@ -168,6 +171,7 @@ export class AccountStoreFormComponent implements OnInit {
       store._id = store._id.toString();
 
       this.store.update(store).pipe(take(1)).subscribe((res) => {
+        this.saving$.next(false);
         console.log('res store update >>>', res);
       });
 

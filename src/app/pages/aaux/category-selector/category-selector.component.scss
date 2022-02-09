@@ -1,0 +1,104 @@
+@import "flex.scss";
+@import "helper.scss";
+
+:host {
+    @extend .fx-layout-column;
+    position: absolute;
+    top: -17px;
+    left: -17px;
+    z-index: 1;
+    height: 300px;
+    width: calc(100% + 34px);
+    background-color: var(--bg-color-primary);
+    // box-shadow: var(--box-shadow-dark);
+    border-radius: calc(var(--border-radius) * 4);
+    box-shadow: rgb(0 0 0 / 20%) 0px 6px 20px !important;
+
+    .__field {
+        border: 1px solid var(--text-color-primary);
+        background-color: var(--bg-color-primary);
+        border-radius: var(--border-radius);
+        height: 60px;
+        width: calc(100% - 32px);
+        margin: 16px;
+        padding: 0 16px;
+        font-size: 14px;
+        color: var(--text-color-primary);
+        @extend .fx-layout-row;
+        @extend .fx-align-spacebetween-center;
+        flex-shrink: 0;
+    }
+
+    .__category-wrapper {
+        @extend .fx-layout-row;
+    }
+
+    .__category {
+        @extend .fx-layout-row;
+        @extend .fx-align-start-center;
+        &:last-child {
+            .__icon {
+                display: none;
+            }
+        }
+    }
+
+    .__nodes {
+        @extend .fx-layout-row;
+        height: calc(100% - 93px);
+        flex-shrink: 0;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .__node {
+        overflow-y: auto;
+        white-space: nowrap;
+        width: calc(100% / 4);
+        height: 100%;
+        display: inline-block;
+        @extend .fx-layout-column;
+        @extend .fx-align-start-start;
+        flex-shrink: 0;
+        border-right: 1px solid var(--bg-color-disabled);
+        padding: 8px 0;
+    }
+
+    .__loader {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .__item {
+        @extend .fx-layout-row;
+        @extend .fx-align-spacebetween-center;
+        height: 40px;
+        padding: 0px 16px;
+        font-weight: 400;
+        font-size: 14px;
+        color: var(--text-color-secondary);
+        &.__selected {
+            color: var(--text-color-primary);
+            font-weight: 400;
+            text-shadow: 0 0 0 var(--text-color-primary);
+        }
+        &:hover {
+            background-color: var(--bg-color-hover);
+        }
+    }
+
+    .__icon {
+        display: block;
+        fill: var(--text-color-placeholder);
+        width: 16px;
+        height: 16px;
+        svg {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+        }
+    }
+}

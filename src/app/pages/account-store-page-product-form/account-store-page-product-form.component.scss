@@ -6,6 +6,44 @@
   width: 100%;
   margin-top: 80px;
 
+  .__category-content {
+    padding: 0 16px;
+    font-size: 14px;
+    width: 100%;
+    color: var(--text-color-primary);
+    @extend .fx-layout-row;
+    @extend .fx-align-spacebetween-center;
+    flex-shrink: 0;
+  }
+
+  .__category-wrapper {
+    @extend .fx-layout-row;
+  }
+
+  .__category {
+    @extend .fx-layout-row;
+    @extend .fx-align-start-center;
+    &:last-child {
+      .__icon {
+        display: none;
+      }
+    }
+  }
+
+  .__icon {
+    display: block;
+    fill: var(--text-color-placeholder);
+    width: 16px;
+    height: 16px;
+    svg {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+    }
+  }
+
   .__add-btn {
     cursor: pointer;
     padding: 32px 0;

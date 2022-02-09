@@ -16,14 +16,12 @@ export class UiOverlayDirective {
   @Input() overlay: UiOverlayComponent;
   private overlayRef: OverlayRef;
 
-
   constructor(
     private host: ElementRef<HTMLInputElement>,
     private vcr: ViewContainerRef,
     private _overlay: Overlay,
     private uiOverlay: UiOverlay
   ) { }
-
 
   ngOnInit() {
     fromEvent(this.origin, 'mouseup').pipe(

@@ -12,14 +12,15 @@
                 </div>
 
                 <div class="__card" *ngFor="let product of products$ | async">
-                    
+
                     <div class="__header">
                         <div class="__photo __bottom-shadow">
-                            <img [attr.src]="product.visual_medium[0].url">
+                            <img [attr.src]="product.visual_medium ? product.visual_medium[0].url : ''">
                         </div>
 
                         <div class="__btn-wrapper">
-                            <div class="__btn __btn-icon __btn-icon-md shade" [routerLink]="['../../product/', product.url]">
+                            <div class="__btn __btn-icon __btn-icon-md shade"
+                                [routerLink]="['../../product/', product.url]">
                                 <div class="__icon" [inlineSVG]="'assets/icons/pencil.svg'"></div>
                             </div>
                         </div>

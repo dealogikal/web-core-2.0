@@ -3,7 +3,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { BSON } from 'realm-web';
-import { combineLatest, Observable, of } from 'rxjs';
+import { BehaviorSubject, combineLatest, Observable, of } from 'rxjs';
 import { debounceTime, map, skip, switchMap, take } from 'rxjs/operators';
 import { BrandService } from 'src/app/services/brand.service';
 import { StoreService } from 'src/app/services/store.service';
@@ -20,6 +20,7 @@ export class AccountStoreBrandFormComponent implements OnInit {
   title$: Observable<any>;
   brand$: Observable<any>;
   hasChanged$: Observable<any>;
+  saving$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   form: FormGroup;
 
@@ -156,6 +157,7 @@ export class AccountStoreBrandFormComponent implements OnInit {
   }
 
   onSubmit() {
+    this.saving$.next(true);
     combineLatest([
       this.brand.get(),
       this.store.get(),
@@ -171,7 +173,8 @@ export class AccountStoreBrandFormComponent implements OnInit {
           url: store.url
         };
         this.brand.create(brand).pipe(take(1)).subscribe(res => {
-          console.log('created >>>', res);
+          console.log('created >>>', res); 
+          this.saving$.next(false);
           this.router.navigate([`../brand/${res.data.url}`], { relativeTo: this.route });
         });
         return;
@@ -182,6 +185,7 @@ export class AccountStoreBrandFormComponent implements OnInit {
       brand._id = brand._id.toString();
 
       this.brand.update(brand).pipe(take(1)).subscribe((res) => {
+        this.saving$.next(false);
         console.log('res brand update >>>', res);
       });
 

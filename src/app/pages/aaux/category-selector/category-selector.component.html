@@ -1,0 +1,33 @@
+<div class="__field">
+    <div class="__category-wrapper">
+        <div class="__category" *ngFor="let category of categories$ | async">
+            <span>{{category.value}}</span>
+            <div class="m-l-4px"></div>
+            <span class="__icon" [inlineSVG]="'assets/icons/chevron.right.svg'"></span>
+            <div class="m-l-4px"></div>
+        </div>
+    </div>
+
+    <div class="__ui-btn sm shade" [class.disabled]="!(save$ | async)" (click)="onSaveHandler()">Save</div>
+
+</div>
+
+<div class="__separator"></div>
+
+<ng-container *ngIf="markets$ | async">
+
+    <div class="__nodes" *ngIf="(nodes$ | async) as nodes">
+        <ul class="__node" *ngFor="let node of nodes;let nodeIdx = index">
+            <li class="__item" [class.__selected]="item._id == (categories$ | async)[nodeIdx]?._id"
+                *ngFor="let item of node.children" (click)="onSelectItem(item, nodeIdx)">
+                <span class="__body-2" class>{{item.value}}</span>
+                <span *ngIf="item.children.length" class="__icon" [inlineSVG]="'assets/icons/chevron.right.svg'"></span>
+            </li>
+        </ul>
+    </div>
+
+</ng-container>
+
+<div class="__loader" *ngIf="(initialLoad$ | async)">
+    <ui-loader-ell *ngIf="(initialLoad$ | async)" [color]="'--text-color-primary'"></ui-loader-ell>
+</div>

@@ -45,7 +45,6 @@ export class HeaderComponent implements OnInit {
       this.collapse = true;
       this.expand = false;
     }
-
   }
 
   expandOnTop$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);

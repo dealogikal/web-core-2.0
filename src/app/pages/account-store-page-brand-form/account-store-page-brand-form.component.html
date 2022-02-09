@@ -98,13 +98,25 @@
                 <div class="__section__content">
 
                     <div class="fx-layout-row fx-align-start-center">
-                        <button type="submit" class="__btn lg primary"
+                        <!-- <button type="submit" class="__btn lg primary"
                             [class.disabled]="!(hasChanged$ | async)">{{!(hasChanged$
                             | async) ? 'No changes' : (brand$ |
                             async) ? 'Save' : 'Submit'}}</button>
                         <div class="m-l-16px"></div>
 
-                        <button class="__btn lg" *ngIf="brand$ | async">Removed Brand</button>
+                        <button class="__btn lg" *ngIf="brand$ | async">Removed Brand</button> -->
+
+                        <button type="submit" class="__ui-btn primary"
+                            [class.disabled]="!(hasChanged$ | async) || (saving$ | async)">
+                            <span [class.__hide]="(saving$ | async)">
+                                {{!(hasChanged$ | async) ? 'No changes' : (brand$ | async) ? 'Save' : 'Submit'}}
+                            </span>
+                            <ui-loader-ell *ngIf="(saving$ | async)"></ui-loader-ell>
+                        </button>
+
+                        <div class="m-l-16px"></div>
+
+                        <div class="__ui-btn shade" *ngIf="brand$ | async">Remove Brand</div>
 
                     </div>
 

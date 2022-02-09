@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'ui-loader-ell',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./loader-ell.component.scss']
 })
 export class UiLoaderEllComponent implements OnInit {
+
+  @Input() color: string = '--text-color-primary-with-bgcolor';
 
   constructor() { }
 

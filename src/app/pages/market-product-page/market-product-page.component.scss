@@ -29,7 +29,7 @@
                 border: 1px solid var(--bg-color-outline);
                 border-top: none;
                 &:after {
-                    content: '';
+                    content: "";
                     position: absolute;
                     height: 100%;
                     width: 1px;
@@ -49,11 +49,11 @@
             .__amount {
                 position: relative;
                 @extend .fx-layout-row;
-                border: 1px solid var(--bg-color-outline); 
+                border: 1px solid var(--bg-color-outline);
                 border-top-left-radius: calc(var(--border-radius) * 2);
                 border-top-right-radius: calc(var(--border-radius) * 2);
                 &:after {
-                    content: '';
+                    content: "";
                     position: absolute;
                     height: 100%;
                     width: 1px;
@@ -67,14 +67,35 @@
             .__notes {
                 position: relative;
                 @extend .fx-layout-row;
-                border: 1px solid var(--bg-color-outline); 
+                border: 1px solid var(--bg-color-outline);
                 border-top: none;
                 border-bottom-left-radius: calc(var(--border-radius) * 2);
                 border-bottom-right-radius: calc(var(--border-radius) * 2);
             }
+        }
+    }
 
+    @media (min-width: 375px) {
+        .__form-wrapper {
+            display: none;
+        }
+    }
 
+    @media (min-width: 744px) {
+        .__form-wrapper {
+            display: none;
+        }
+    }
 
+    @media (min-width: 950px) {
+        .__form-wrapper {
+            display: block;
+        }
+    }
+
+    @media (min-width: 1128px) {
+        .__form-wrapper {
+            display: block;
         }
     }
 }
